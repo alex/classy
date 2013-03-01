@@ -123,9 +123,9 @@
       if (disable_constructor)
         return;
       var proper_this = context === this ? cheapNew(arguments.callee) : this;
+      proper_this.$class = rv;
       if (proper_this.__init__)
         proper_this.__init__.apply(proper_this, arguments);
-      proper_this.$class = rv;
       return proper_this;
     }
 
